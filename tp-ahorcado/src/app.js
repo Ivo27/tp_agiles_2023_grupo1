@@ -81,7 +81,7 @@ const jugar = (palabraAdivinar) => {
         }
         else completarPalabra(palabraAdivinar, letter, palabraUsuario)
         let res = verificarFinJuego(palabraUsuario.join(''), palabraAdivinar, int)
-        console.log('Palabra a adivinar: ' + palabraUsuario.join(''), 'Letras erradas: ' + letrasErradas.join(''), 'Intentos: ' + int)
+        // console.log('Palabra a adivinar: ' + palabraUsuario.join(''), 'Letras erradas: ' + letrasErradas.join(''), 'Intentos: ' + int)
         if (res === 'Ganaste') return 'Ganaste'
         else if (res === 'Perdiste') return 'Perdiste'
     }
