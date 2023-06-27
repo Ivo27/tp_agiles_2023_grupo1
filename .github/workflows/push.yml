@@ -10,4 +10,4 @@ jobs:
         with:
           node-version: 'latest'
       - run: npm install -g jest
-      - run: npm run jest
+      - run: jest
