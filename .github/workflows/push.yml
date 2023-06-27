@@ -9,6 +9,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'latest'
-      - run: node ./tp-ahorcado/src/ahorcado.js
       - run: npm install -g jest
       - run: npm run jest
