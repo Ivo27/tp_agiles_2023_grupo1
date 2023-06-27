@@ -1,5 +1,5 @@
-name: compilar
-run-name: Compilando proyecto
+name: test
+run-name: Testeando
 on: [push]
 jobs:
   compilar:
@@ -10,3 +10,5 @@ jobs:
         with:
           node-version: 'latest'
       - run: node ./tp-ahorcado/src/ahorcado.js
+      - run: npm install -g jest
+      - run: npm run jest
