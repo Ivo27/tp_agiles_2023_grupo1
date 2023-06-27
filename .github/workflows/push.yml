@@ -7,5 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: pwd
-      - run: npm
+      - run: ls
+      - run: cd ./tp-ahorcado
+      - run: pwd
       - run: npm test
