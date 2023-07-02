@@ -1,0 +1,762 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "bret@gra.com"
+    },
+    {
+      "id": 2,
+      "name": "Test",
+      "username": "Test",
+      "email": "test@test.com"
+    },
+    {
+      "email": "test@ts.com",
+      "password": "dsfeeter",
+      "fullName": "JHMesseroux",
+      "photo": "",
+      "id": 3
+    },
+    {
+      "email": "prod_dev@gmail.com",
+      "password": "Test1234!",
+      "fullName": "JHMesseroux",
+      "photo": "",
+      "id": 4
+    }
+  ],
+  "games": [
+    {
+      "MAX_INTENTOS": 9,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 9,
+      "palabraUsuario": [],
+      "letrasErradas": [],
+      "palabraAdivinar": "gato",
+      "userId": 4,
+      "id": 1
+    },
+    {
+      "MAX_INTENTOS": 9,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [
+        "l"
+      ],
+      "letrasErradas": [
+        "g",
+        "d",
+        "b",
+        "a",
+        "t",
+        "p",
+        "x",
+        "z",
+        "u"
+      ],
+      "palabraAdivinar": "leo",
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 2
+    },
+    {
+      "MAX_INTENTOS": 9,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [],
+      "letrasErradas": [
+        "n",
+        "r",
+        "s",
+        "t",
+        "u",
+        "z",
+        "y",
+        "q",
+        "j"
+      ],
+      "palabraAdivinar": "leo",
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 3
+    },
+    {
+      "MAX_INTENTOS": 9,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 7,
+      "palabraUsuario": [
+        "l",
+        "e",
+        "o"
+      ],
+      "letrasErradas": [
+        "k",
+        "a"
+      ],
+      "palabraAdivinar": "leo",
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Ganaste",
+      "id": 4
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [],
+      "letrasErradas": [
+        "g",
+        "m",
+        "n",
+        "u",
+        "e",
+        "d",
+        "c",
+        "b"
+      ],
+      "palabraAdivinar": "papa",
+      "allInputs": [
+        "g",
+        "m",
+        "n",
+        "u",
+        "e",
+        "d",
+        "c",
+        "b"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 5
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [
+        null,
+        "v"
+      ],
+      "letrasErradas": [
+        "j",
+        "k",
+        "l",
+        "f",
+        "r",
+        "p",
+        "w",
+        "u"
+      ],
+      "palabraAdivinar": "ivo",
+      "allInputs": [
+        "j",
+        "k",
+        "l",
+        "f",
+        "r",
+        "p",
+        "w",
+        "v",
+        "u"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 6
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [
+        "c",
+        "a",
+        null,
+        "a"
+      ],
+      "letrasErradas": [
+        "k",
+        "f",
+        "l",
+        "x",
+        "w",
+        "h",
+        "b",
+        "s"
+      ],
+      "palabraAdivinar": "cara",
+      "allInputs": [
+        "k",
+        "f",
+        "l",
+        "x",
+        "w",
+        "h",
+        "a",
+        "c",
+        "b",
+        "s"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 7
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [
+        "p",
+        null,
+        "p"
+      ],
+      "letrasErradas": [
+        "v",
+        "d",
+        "f",
+        "w",
+        "j",
+        "b",
+        "q",
+        "r"
+      ],
+      "palabraAdivinar": "papa",
+      "allInputs": [
+        "v",
+        "d",
+        "f",
+        "w",
+        "p",
+        "j",
+        "b",
+        "q",
+        "r"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 8
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [
+        null,
+        "e"
+      ],
+      "letrasErradas": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f",
+        "g",
+        "h",
+        "i"
+      ],
+      "palabraAdivinar": "leo",
+      "allInputs": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 9
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 1,
+      "palabraUsuario": [
+        "m",
+        "a",
+        "m",
+        "a"
+      ],
+      "letrasErradas": [
+        "c",
+        "e",
+        "f",
+        "s",
+        "j",
+        "h",
+        "g"
+      ],
+      "palabraAdivinar": "mama",
+      "allInputs": [
+        "m",
+        "c",
+        "e",
+        "f",
+        "s",
+        "j",
+        "h",
+        "g",
+        "a"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Ganaste",
+      "id": 10
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [
+        null,
+        "e"
+      ],
+      "letrasErradas": [
+        "b",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "t",
+        "q"
+      ],
+      "palabraAdivinar": "perro",
+      "allInputs": [
+        "b",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "t",
+        "q"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 11
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [
+        null,
+        "a"
+      ],
+      "letrasErradas": [
+        "m",
+        "b",
+        "c",
+        "d",
+        "e",
+        "g",
+        "h",
+        "j"
+      ],
+      "palabraAdivinar": "pato",
+      "allInputs": [
+        "m",
+        "b",
+        "a",
+        "c",
+        "d",
+        "e",
+        "g",
+        "h",
+        "j"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 12
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [],
+      "letrasErradas": [
+        "t",
+        "f",
+        "d",
+        "b",
+        "w",
+        "x",
+        "y",
+        "z"
+      ],
+      "palabraAdivinar": "mama",
+      "allInputs": [
+        "t",
+        "f",
+        "d",
+        "b",
+        "w",
+        "x",
+        "y",
+        "z"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 13
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [],
+      "letrasErradas": [
+        "c",
+        "d",
+        "h",
+        "q",
+        "z",
+        "r",
+        "o",
+        "x"
+      ],
+      "palabraAdivinar": "mama",
+      "allInputs": [
+        "c",
+        "d",
+        "h",
+        "q",
+        "z",
+        "r",
+        "o",
+        "x"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 14
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "dificil",
+      "intentos": 0,
+      "palabraUsuario": [
+        null,
+        null,
+        null,
+        null,
+        "a",
+        null,
+        "a",
+        null,
+        "a",
+        null,
+        null,
+        "e"
+      ],
+      "letrasErradas": [
+        "z",
+        "b",
+        "o",
+        "c",
+        "m",
+        "l",
+        "i",
+        "j"
+      ],
+      "palabraAdivinar": "Extravagante",
+      "allInputs": [
+        "z",
+        "a",
+        "b",
+        "e",
+        "o",
+        "c",
+        "m",
+        "l",
+        "i",
+        "j"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 15
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 10,
+      "nivel": "dificil",
+      "intentos": 6,
+      "palabraUsuario": [],
+      "letrasErradas": [
+        "q",
+        "w"
+      ],
+      "palabraAdivinar": "Establecimiento",
+      "allInputs": [
+        "q",
+        "w"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Continua",
+      "id": 16
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 10,
+      "nivel": "dificil",
+      "intentos": 8,
+      "palabraUsuario": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "m"
+      ],
+      "letrasErradas": [],
+      "palabraAdivinar": "Establecimiento",
+      "allInputs": [
+        "m"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Continua",
+      "id": 17
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 10,
+      "nivel": "facil",
+      "intentos": 7,
+      "palabraUsuario": [],
+      "letrasErradas": [
+        "z"
+      ],
+      "palabraAdivinar": "pato",
+      "allInputs": [
+        "z"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Continua",
+      "id": 18
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 10,
+      "nivel": "facil",
+      "intentos": 7,
+      "palabraUsuario": [],
+      "letrasErradas": [
+        "y"
+      ],
+      "palabraAdivinar": "pato",
+      "allInputs": [
+        "y"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Continua",
+      "id": 19
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 10,
+      "nivel": "facil",
+      "intentos": 7,
+      "palabraUsuario": [],
+      "letrasErradas": [
+        "p"
+      ],
+      "palabraAdivinar": "casa",
+      "allInputs": [
+        "p"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Continua",
+      "id": 20
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 10,
+      "nivel": "facil",
+      "intentos": 7,
+      "palabraUsuario": [],
+      "letrasErradas": [
+        "f"
+      ],
+      "palabraAdivinar": "casa",
+      "allInputs": [
+        "f"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Continua",
+      "id": 21
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 10,
+      "nivel": "facil",
+      "intentos": 0,
+      "palabraUsuario": [
+        null,
+        "v"
+      ],
+      "letrasErradas": [
+        "f",
+        "g",
+        "h",
+        "t",
+        "u",
+        "d",
+        "w",
+        "x"
+      ],
+      "palabraAdivinar": "ivo",
+      "allInputs": [
+        "f",
+        "g",
+        "h",
+        "t",
+        "u",
+        "v",
+        "d",
+        "w",
+        "x"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Perdiste",
+      "id": 22
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 10,
+      "nivel": "facil",
+      "intentos": 8,
+      "palabraUsuario": [
+        null,
+        null,
+        "o"
+      ],
+      "letrasErradas": [],
+      "palabraAdivinar": "ivo",
+      "allInputs": [
+        "o"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Continua",
+      "id": 23
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 10,
+      "nivel": "facil",
+      "intentos": 2,
+      "palabraUsuario": [
+        "p",
+        null,
+        null,
+        null,
+        "o"
+      ],
+      "letrasErradas": [
+        "d",
+        "b",
+        "h",
+        "y",
+        "w",
+        "k"
+      ],
+      "palabraAdivinar": "perro",
+      "allInputs": [
+        "d",
+        "b",
+        "h",
+        "o",
+        "y",
+        "w",
+        "p",
+        "k"
+      ],
+      "userId": 4,
+      "userName": "JHMesseroux",
+      "userEmail": "prod_dev@gmail.com",
+      "finalState": "Continua",
+      "id": 24
+    }
+  ]
+}
