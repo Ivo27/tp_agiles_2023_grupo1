@@ -1,316 +1,79 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "username": "Bret",
-      "email": "bret@gra.com"
-    },
-    {
-      "id": 2,
-      "name": "Test",
-      "username": "Test",
-      "email": "test@test.com"
-    },
-    {
-      "email": "test@ts.com",
-      "password": "dsfeeter",
-      "fullName": "JHMesseroux",
-      "photo": "",
-      "id": 3
-    },
     {
       "email": "prod_dev@gmail.com",
       "password": "Test1234!",
       "fullName": "JHMesseroux",
       "photo": "",
       "id": 4
+    },
+    {
+      "email": "mhokamor@gmail.com",
+      "password": "test1234",
+      "fullName": "MHOK",
+      "photo": "https://res.cloudinary.com/draxircbk/image/upload/v1687141107/ATESPIEDSJESUS/USERS/jhmcode_2_admin.png",
+      "id": 5
     }
   ],
   "games": [
     {
-      "MAX_INTENTOS": 9,
+      "MAX_INTENTOS": 8,
       "TIMER": 60,
       "nivel": "facil",
-      "intentos": 9,
-      "palabraUsuario": [],
-      "letrasErradas": [],
-      "palabraAdivinar": "gato",
-      "userId": 4,
-      "id": 1
-    },
-    {
-      "MAX_INTENTOS": 9,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [
-        "l"
-      ],
-      "letrasErradas": [
-        "g",
-        "d",
-        "b",
-        "a",
-        "t",
-        "p",
-        "x",
-        "z",
-        "u"
-      ],
-      "palabraAdivinar": "leo",
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 2
-    },
-    {
-      "MAX_INTENTOS": 9,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [],
-      "letrasErradas": [
-        "n",
-        "r",
-        "s",
-        "t",
-        "u",
-        "z",
-        "y",
-        "q",
-        "j"
-      ],
-      "palabraAdivinar": "leo",
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 3
-    },
-    {
-      "MAX_INTENTOS": 9,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 7,
+      "intentos": 8,
       "palabraUsuario": [
         "l",
         "e",
         "o"
       ],
-      "letrasErradas": [
-        "k",
-        "a"
-      ],
+      "letrasErradas": [],
       "palabraAdivinar": "leo",
+      "allInputs": [
+        "l",
+        "e",
+        "o"
+      ],
       "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
       "finalState": "Ganaste",
-      "id": 4
+      "time": 60,
+      "withTimer": false,
+      "date": "2023-07-02T22:49:39.383Z",
+      "id": 1
     },
     {
       "MAX_INTENTOS": 8,
       "TIMER": 60,
       "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [],
-      "letrasErradas": [
-        "g",
-        "m",
-        "n",
-        "u",
-        "e",
-        "d",
-        "c",
-        "b"
-      ],
-      "palabraAdivinar": "papa",
-      "allInputs": [
-        "g",
-        "m",
-        "n",
-        "u",
-        "e",
-        "d",
-        "c",
-        "b"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 5
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 0,
+      "intentos": 5,
       "palabraUsuario": [
-        null,
-        "v"
-      ],
-      "letrasErradas": [
-        "j",
-        "k",
-        "l",
         "f",
-        "r",
-        "p",
-        "w",
-        "u"
-      ],
-      "palabraAdivinar": "ivo",
-      "allInputs": [
-        "j",
-        "k",
-        "l",
-        "f",
-        "r",
-        "p",
-        "w",
-        "v",
-        "u"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 6
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [
-        "c",
-        "a",
-        null,
-        "a"
-      ],
-      "letrasErradas": [
-        "k",
-        "f",
-        "l",
-        "x",
-        "w",
-        "h",
-        "b",
-        "s"
-      ],
-      "palabraAdivinar": "cara",
-      "allInputs": [
-        "k",
-        "f",
-        "l",
-        "x",
-        "w",
-        "h",
         "a",
         "c",
-        "b",
-        "s"
+        "i",
+        "l"
       ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 7
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [
-        "p",
-        null,
+      "letrasErradas": [
+        "o",
+        "e",
         "p"
       ],
-      "letrasErradas": [
-        "v",
-        "d",
-        "f",
-        "w",
-        "j",
-        "b",
-        "q",
-        "r"
-      ],
-      "palabraAdivinar": "papa",
-      "allInputs": [
-        "v",
-        "d",
-        "f",
-        "w",
-        "p",
-        "j",
-        "b",
-        "q",
-        "r"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 8
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [
-        null,
-        "e"
-      ],
-      "letrasErradas": [
-        "a",
-        "b",
-        "c",
-        "d",
-        "f",
-        "g",
-        "h",
-        "i"
-      ],
-      "palabraAdivinar": "leo",
+      "palabraAdivinar": "facil",
       "allInputs": [
         "a",
-        "b",
+        "l",
         "c",
-        "d",
+        "o",
         "e",
+        "p",
         "f",
-        "g",
-        "h",
         "i"
       ],
       "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 9
+      "finalState": "Ganaste",
+      "time": 32,
+      "withTimer": true,
+      "date": "2023-07-02T22:52:48.375Z",
+      "id": 2
     },
     {
       "MAX_INTENTOS": 8,
@@ -318,445 +81,246 @@
       "nivel": "facil",
       "intentos": 1,
       "palabraUsuario": [
+        "i",
+        null,
+        "o"
+      ],
+      "letrasErradas": [
+        "l",
+        "u",
+        "c",
+        "a",
+        "f",
+        "e",
+        "t",
+        "y"
+      ],
+      "palabraAdivinar": "ivo",
+      "allInputs": [
+        "l",
+        "u",
+        "c",
+        "a",
+        "f",
+        "i",
+        "e",
+        "t",
+        "o",
+        "y"
+      ],
+      "userId": 4,
+      "finalState": "Perdiste",
+      "time": 60,
+      "withTimer": false,
+      "date": "2023-07-02T22:53:26.295Z",
+      "id": 3
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 4,
+      "palabraUsuario": [
         "m",
         "a",
         "m",
         "a"
       ],
       "letrasErradas": [
-        "c",
-        "e",
-        "f",
-        "s",
-        "j",
+        "w",
         "h",
-        "g"
+        "c",
+        "s"
       ],
       "palabraAdivinar": "mama",
       "allInputs": [
-        "m",
-        "c",
-        "e",
-        "f",
-        "s",
-        "j",
+        "w",
         "h",
-        "g",
-        "a"
+        "a",
+        "c",
+        "s",
+        "m"
       ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
+      "userId": 5,
       "finalState": "Ganaste",
-      "id": 10
+      "time": 15,
+      "withTimer": true,
+      "date": "2023-07-02T23:33:57.774Z",
+      "id": 4
     },
     {
       "MAX_INTENTOS": 8,
       "TIMER": 60,
       "nivel": "facil",
-      "intentos": 0,
+      "intentos": 1,
       "palabraUsuario": [
+        "c",
         null,
-        "e"
+        "s"
       ],
       "letrasErradas": [
-        "b",
-        "f",
-        "g",
-        "h",
-        "i",
-        "j",
-        "t",
-        "q"
-      ],
-      "palabraAdivinar": "perro",
-      "allInputs": [
-        "b",
-        "e",
-        "f",
-        "g",
-        "h",
-        "i",
-        "j",
-        "t",
-        "q"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 11
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [
-        null,
-        "a"
-      ],
-      "letrasErradas": [
-        "m",
-        "b",
-        "c",
-        "d",
-        "e",
-        "g",
-        "h",
-        "j"
-      ],
-      "palabraAdivinar": "pato",
-      "allInputs": [
-        "m",
-        "b",
-        "a",
-        "c",
-        "d",
-        "e",
-        "g",
-        "h",
-        "j"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 12
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [],
-      "letrasErradas": [
-        "t",
-        "f",
-        "d",
-        "b",
-        "w",
-        "x",
-        "y",
-        "z"
-      ],
-      "palabraAdivinar": "mama",
-      "allInputs": [
-        "t",
-        "f",
-        "d",
-        "b",
-        "w",
-        "x",
-        "y",
-        "z"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 13
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 60,
-      "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [],
-      "letrasErradas": [
-        "c",
-        "d",
-        "h",
-        "q",
-        "z",
-        "r",
-        "o",
-        "x"
-      ],
-      "palabraAdivinar": "mama",
-      "allInputs": [
-        "c",
-        "d",
-        "h",
-        "q",
-        "z",
-        "r",
-        "o",
-        "x"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 14
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 60,
-      "nivel": "dificil",
-      "intentos": 0,
-      "palabraUsuario": [
-        null,
-        null,
-        null,
-        null,
-        "a",
-        null,
-        "a",
-        null,
-        "a",
-        null,
-        null,
-        "e"
-      ],
-      "letrasErradas": [
-        "z",
-        "b",
-        "o",
-        "c",
-        "m",
+        "k",
         "l",
-        "i",
-        "j"
-      ],
-      "palabraAdivinar": "Extravagante",
-      "allInputs": [
-        "z",
-        "a",
-        "b",
-        "e",
-        "o",
-        "c",
         "m",
-        "l",
+        "t",
+        "g",
         "i",
-        "j"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Perdiste",
-      "id": 15
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 10,
-      "nivel": "dificil",
-      "intentos": 6,
-      "palabraUsuario": [],
-      "letrasErradas": [
-        "q",
-        "w"
-      ],
-      "palabraAdivinar": "Establecimiento",
-      "allInputs": [
-        "q",
-        "w"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Continua",
-      "id": 16
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 10,
-      "nivel": "dificil",
-      "intentos": 8,
-      "palabraUsuario": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "m"
-      ],
-      "letrasErradas": [],
-      "palabraAdivinar": "Establecimiento",
-      "allInputs": [
-        "m"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Continua",
-      "id": 17
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 10,
-      "nivel": "facil",
-      "intentos": 7,
-      "palabraUsuario": [],
-      "letrasErradas": [
-        "z"
-      ],
-      "palabraAdivinar": "pato",
-      "allInputs": [
-        "z"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Continua",
-      "id": 18
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 10,
-      "nivel": "facil",
-      "intentos": 7,
-      "palabraUsuario": [],
-      "letrasErradas": [
-        "y"
-      ],
-      "palabraAdivinar": "pato",
-      "allInputs": [
-        "y"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Continua",
-      "id": 19
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 10,
-      "nivel": "facil",
-      "intentos": 7,
-      "palabraUsuario": [],
-      "letrasErradas": [
+        "h",
         "p"
       ],
       "palabraAdivinar": "casa",
       "allInputs": [
+        "k",
+        "l",
+        "s",
+        "m",
+        "t",
+        "g",
+        "c",
+        "i",
+        "h",
         "p"
       ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Continua",
-      "id": 20
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 10,
-      "nivel": "facil",
-      "intentos": 7,
-      "palabraUsuario": [],
-      "letrasErradas": [
-        "f"
-      ],
-      "palabraAdivinar": "casa",
-      "allInputs": [
-        "f"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Continua",
-      "id": 21
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 10,
-      "nivel": "facil",
-      "intentos": 0,
-      "palabraUsuario": [
-        null,
-        "v"
-      ],
-      "letrasErradas": [
-        "f",
-        "g",
-        "h",
-        "t",
-        "u",
-        "d",
-        "w",
-        "x"
-      ],
-      "palabraAdivinar": "ivo",
-      "allInputs": [
-        "f",
-        "g",
-        "h",
-        "t",
-        "u",
-        "v",
-        "d",
-        "w",
-        "x"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
+      "userId": 5,
       "finalState": "Perdiste",
-      "id": 22
+      "time": 60,
+      "withTimer": false,
+      "date": "2023-07-02T23:39:27.577Z",
+      "id": 5
     },
     {
       "MAX_INTENTOS": 8,
-      "TIMER": 10,
-      "nivel": "facil",
-      "intentos": 8,
-      "palabraUsuario": [
-        null,
-        null,
-        "o"
-      ],
-      "letrasErradas": [],
-      "palabraAdivinar": "ivo",
-      "allInputs": [
-        "o"
-      ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Continua",
-      "id": 23
-    },
-    {
-      "MAX_INTENTOS": 8,
-      "TIMER": 10,
+      "TIMER": 60,
       "nivel": "facil",
       "intentos": 2,
       "palabraUsuario": [
-        "p",
-        null,
-        null,
-        null,
-        "o"
+        "c",
+        "a",
+        "r",
+        "a"
       ],
       "letrasErradas": [
-        "d",
-        "b",
-        "h",
-        "y",
-        "w",
-        "k"
+        "u",
+        "l",
+        "i",
+        "s",
+        "j",
+        "m"
       ],
-      "palabraAdivinar": "perro",
+      "palabraAdivinar": "cara",
       "allInputs": [
-        "d",
-        "b",
-        "h",
-        "o",
-        "y",
-        "w",
-        "p",
-        "k"
+        "u",
+        "l",
+        "i",
+        "a",
+        "c",
+        "s",
+        "j",
+        "m",
+        "r"
       ],
-      "userId": 4,
-      "userName": "JHMesseroux",
-      "userEmail": "prod_dev@gmail.com",
-      "finalState": "Continua",
-      "id": 24
+      "finalState": "Ganaste",
+      "time": 56,
+      "withTimer": true,
+      "date": "2023-07-03T19:46:52.719Z",
+      "id": 6
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 145,
+      "nivel": "medio",
+      "intentos": 4,
+      "palabraUsuario": [
+        "f",
+        "a",
+        "n",
+        "t",
+        "a",
+        "s",
+        "m",
+        "a"
+      ],
+      "letrasErradas": [
+        "i",
+        "r",
+        "c",
+        "l"
+      ],
+      "palabraAdivinar": "fantasma",
+      "allInputs": [
+        "a",
+        "f",
+        "s",
+        "i",
+        "r",
+        "c",
+        "l",
+        "n",
+        "t",
+        "m"
+      ],
+      "userId": 5,
+      "finalState": "Ganaste",
+      "time": 145,
+      "withTimer": false,
+      "date": "2023-07-03T20:11:42.120Z",
+      "id": 7
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 240,
+      "nivel": "dificil",
+      "intentos": 1,
+      "palabraUsuario": [
+        null,
+        "n",
+        "c",
+        "o",
+        "m",
+        "u",
+        "n",
+        "i",
+        "c",
+        "a",
+        "c",
+        "i",
+        null,
+        "n"
+      ],
+      "letrasErradas": [
+        "p",
+        "q",
+        "l",
+        "e",
+        "h",
+        "s",
+        "w",
+        "j"
+      ],
+      "palabraAdivinar": "Incomunicación",
+      "allInputs": [
+        "a",
+        "c",
+        "p",
+        "q",
+        "l",
+        "e",
+        "h",
+        "i",
+        "u",
+        "n",
+        "o",
+        "s",
+        "m",
+        "w",
+        "j"
+      ],
+      "userId": 5,
+      "finalState": "Perdiste",
+      "time": 240,
+      "withTimer": false,
+      "date": "2023-07-03T20:12:49.875Z",
+      "id": 8
     }
   ]
 }

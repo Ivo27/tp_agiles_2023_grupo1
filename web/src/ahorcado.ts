@@ -15,7 +15,7 @@ export class Ahorcado {
     // intentos = MAX_INTENTOS
     // TODO :: implemenmtar timer para que se termine el juego
     // TODO :: remove accent and uppercase letter 
-    TIMER = 10
+    TIMER = 0
     nivel: string;
     intentos: number;
     palabraUsuario: string[];
@@ -31,9 +31,18 @@ export class Ahorcado {
         this.intentos = this.MAX_INTENTOS
         this.palabraUsuario = []
         this.letrasErradas = []
-        if (nivel === 'facil') this.palabraAdivinar = palabrasFaciles[Math.floor(Math.random() * palabrasFaciles.length)]
-        else if (nivel === 'medio') this.palabraAdivinar = palabrasMedios[Math.floor(Math.random() * palabrasMedios.length)]
-        else if (nivel === 'dificil') this.palabraAdivinar = palabrasDificiles[Math.floor(Math.random() * palabrasDificiles.length)]
+        if (nivel === 'facil') {
+            this.palabraAdivinar = palabrasFaciles[Math.floor(Math.random() * palabrasFaciles.length)]
+            this.TIMER = 60
+        }
+        else if (nivel === 'medio') {
+            this.palabraAdivinar = palabrasMedios[Math.floor(Math.random() * palabrasMedios.length)]
+            this.TIMER = 145
+        }
+        else if (nivel === 'dificil') {
+            this.palabraAdivinar = palabrasDificiles[Math.floor(Math.random() * palabrasDificiles.length)]
+            this.TIMER = 240
+        }
 
     }
 

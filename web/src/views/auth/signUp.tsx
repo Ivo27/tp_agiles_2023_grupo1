@@ -69,7 +69,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className='flex  dark:bg-gray-900 items-center justify-center'>
+    <div className="flex h-screen w-screen dark:bg-gray-900 items-center justify-center">
 
       <Box className=' w-full sm:w-[360px] mx-3 sm:mx-0  '>
         <form onSubmit={handleSubmitLogin} className='flex items-center justify-between flex-col '>

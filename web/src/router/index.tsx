@@ -10,18 +10,10 @@ import Game from "../views/Game";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <PrivateRoute > <App /></PrivateRoute>,
-    children: [
-      { path: "/dashboard", element: <PrivateRoute > <Dashboard /></PrivateRoute> },
-      { path: "/game", element: <PrivateRoute > <Game /></PrivateRoute> },
-    ]
+    element: <App />
   },
-  {
-    path: "/sign-in",
-    element: <PublicRoute > <SignIn /> </PublicRoute>,
-  },
-  {
-    path: "/sign-up",
-    element: <PublicRoute > <SignUp /> </PublicRoute>,
-  }
+  { path: "/game", element: <Game /> },
+  { path: "/dashboard", element: <PrivateRoute > <Dashboard /></PrivateRoute> },
+  { path: "/sign-in", element: <PublicRoute > <SignIn /> </PublicRoute>, },
+  { path: "/sign-up", element: <PublicRoute > <SignUp /> </PublicRoute>, }
 ]);
