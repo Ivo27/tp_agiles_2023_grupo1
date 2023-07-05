@@ -5,12 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "test": "NODE_ENV=test vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "api": "json-server --watch db.json"
+    "api": "json-server --watch db.json",
+    "test:e2e": "npx cypress run",
+    "cc": "cucumber-js"
   },
   "dependencies": {
+    "@cucumber/cucumber": "^9.2.0",
     "axios": "^1.4.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

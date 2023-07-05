@@ -15,10 +15,10 @@ jobs:
       - uses : actions/setup-node@v3
         with:
           node-version: '18'
-      - run : cd web
+      # - run : cd web
       - run : pwd
       - run : ls 
-      - run : cd /web
-      - run: npm install
+      # - run : cd /web
+      - run: npm install --no-audit --no-optional --no-fund 
       - run: npm dev
     
