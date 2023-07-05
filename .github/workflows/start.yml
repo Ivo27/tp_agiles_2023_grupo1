@@ -1,24 +1,23 @@
-name: Arrancar el servidor 
+name: Arrancar el servidor
 run-name: Arrancando el servidor
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   compilar:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
-         fetch-depth: 0
-      - uses : actions/setup-node@v3
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
       # - run : cd web
-      - run : pwd
-      - run : ls 
+      - run: pwd
+      - run: ls
       # - run : cd /web
-      - run: npm install --no-audit --no-optional --no-fund 
-      - run: npm dev
-    
+      - run: npm install --no-audit --no-optional --no-fund
+      - run: npm run dev
