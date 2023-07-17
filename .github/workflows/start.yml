@@ -20,7 +20,7 @@ jobs:
       - run: ls
       # - run : cd /web
       - run: npm install --no-audit --no-optional --no-fund
-      - run: yarn dev
+      # - run: yarn dev
       - name : Ejecutar los Unit Test...
         run: |
           yarn test
