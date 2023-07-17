@@ -1,5 +1,5 @@
 import {  expect, test } from 'vitest'
-import  { Ahorcado, palabrasFaciles, palabrasMedios, palabrasDificiles }  from '../ahorcado.js'
+import  { Ahorcado, palabrasFaciles, palabrasMedios, palabrasDificiles }  from '../t_ahorcado'
 
 // // const juegoFacil = new Ahorcado('facil')
 // const juegoMedio = new Ahorcado('medio')

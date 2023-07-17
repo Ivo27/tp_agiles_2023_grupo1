@@ -500,6 +500,93 @@
       "withTimer": false,
       "date": "2023-07-09T16:33:11.575Z",
       "id": 13
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 6,
+      "palabraUsuario": [
+        "m",
+        "a",
+        "m",
+        "a"
+      ],
+      "letrasErradas": [
+        "p",
+        "g"
+      ],
+      "palabraAdivinar": "mama",
+      "allInputs": [
+        "p",
+        "a",
+        "g",
+        "m"
+      ],
+      "userId": 4,
+      "finalState": "Ganaste",
+      "time": 60,
+      "withTimer": false,
+      "date": "2023-07-17T19:46:45.990Z",
+      "id": 14
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 240,
+      "nivel": "dificil",
+      "intentos": 1,
+      "palabraUsuario": [
+        null,
+        "e",
+        "s",
+        "e",
+        "s",
+        null,
+        "e",
+        "r",
+        "a",
+        "d",
+        "a",
+        "m",
+        "e",
+        "n",
+        null,
+        "e"
+      ],
+      "letrasErradas": [
+        "c",
+        "o",
+        "i",
+        "l",
+        "u",
+        "f",
+        "b",
+        "j"
+      ],
+      "palabraAdivinar": "Desesperadamente",
+      "allInputs": [
+        "s",
+        "c",
+        "a",
+        "o",
+        "i",
+        "e",
+        "l",
+        "n",
+        "m",
+        "r",
+        "u",
+        "f",
+        "d",
+        "b",
+        "j"
+      ],
+      "userId": 4,
+      "finalState": "Perdiste",
+      "time": 51,
+      "withTimer": true,
+      "date": "2023-07-17T19:58:55.266Z",
+      "id": 15
     }
   ]
 }

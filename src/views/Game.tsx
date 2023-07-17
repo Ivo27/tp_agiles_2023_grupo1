@@ -1,4 +1,5 @@
-import { useState, useContext, useEffect, useCallback } from 'react'
+// useEffect, useCallback
+import { useState, useContext } from 'react'
 import { Ahorcado, NIVEL } from '../ahorcado'
 import http from '../api/axios'
 import { AuthContext } from '../context/authContext';
@@ -22,6 +23,8 @@ const Game = () => {
 
     // const game = new Ahorcado()
     const updateGame = async (letter: string) => {
+        // console.log('Games :: ', game)
+        // return
         if (!game) return
         const newGame = game.verificarLetra(letter)
         setGame({ ...newGame })
@@ -37,37 +40,35 @@ const Game = () => {
 
     }
 
-    const updateGameOnKeyPress = useCallback((letter: string) => {
-        console.log('callbackkkkkkkkkkkkkkkkkkkkk')
-        if (!game) return
-        if (game.allInputs.includes(letter)) return
-        console.log('im innnnn 4444.11111 ::: ', letter)
-        updateGame(letter)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [game])
+    // const updateGameOnKeyPress = useCallback((letter: string) => {
+    //     console.log('callbackkkkkkkkkkkkkkkkkkkkk')
+    //     if (!game) return
+    //     if (game.allInputs.includes(letter)) return
+    //     console.log('im innnnn 4444.11111 ::: ', letter)
+    //     updateGame(letter)
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [game])
 
 
+    // useEffect(() => {
+    //     const handleKeyDown = (e: KeyboardEvent) => {
+    //         console.log(' effectttttttttttttttt')
 
+    //         console.log('im innnnn ::: ', e.key)
+    //         if (!e.key.match(/[a-z]/i) || !game) return
+    //         console.log('im innnnn 222 ::: ', e.key)
+    //         e.preventDefault()
+    //         console.log('im innnnn 3333 ::: ', e.key)
+    //         updateGameOnKeyPress(e.key.toUpperCase())
+    //         console.log('im innnnn 4444 ::: ', e.key)
+    //     }
+    //     document.addEventListener('keypress', handleKeyDown)
 
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            console.log(' effectttttttttttttttt')
-
-            console.log('im innnnn ::: ', e.key)
-            if (!e.key.match(/[a-z]/i) || !game) return
-            console.log('im innnnn 222 ::: ', e.key)
-            e.preventDefault()
-            console.log('im innnnn 3333 ::: ', e.key)
-            updateGameOnKeyPress(e.key.toUpperCase())
-            console.log('im innnnn 4444 ::: ', e.key)
-        }
-        document.addEventListener('keypress', handleKeyDown)
-
-        return () => {
-            document.removeEventListener('keypress', handleKeyDown)
-            clearInterval(timer)
-        }
-    },)
+    //     return () => {
+    //         document.removeEventListener('keypress', handleKeyDown)
+    //         clearInterval(timer)
+    //     }
+    // },)
 
     const clearPerson = (l: number) => {
         for (let j = 1; j <= l; j++) {
@@ -76,8 +77,6 @@ const Game = () => {
             el?.classList.add('hidden')
         }
     }
-
-
 
     const handleEndGame = async (game: Ahorcado, isDone: string) => {
         setEndGame(isDone)

@@ -5,6 +5,7 @@ import DefaultAvatar from '../components/DefaultAvatar';
 import Box from '../components/Box';
 import Footer from '../components/Footer';
 import Navbar from '../components/navbar';
+import { formatDate } from '../helpers/date';
 
 export interface IUser {
     id: number,
@@ -88,6 +89,9 @@ const Dashboard = () => {
                                                     <th scope="col" className="px-2 w-40 py-3 text-left tracking-wider">
                                                         JUGADOR
                                                     </th>
+                                                    <th scope="col" className="px-2 w-40 py-3 text-left tracking-wider">
+                                                        Fecha
+                                                    </th>
                                                     <th scope="col" className="px-2 py-3 text-left tracking-wider">
                                                         Pal. Adv.
                                                     </th>
@@ -116,6 +120,7 @@ const Dashboard = () => {
                                                             {game.user.photo ? (<img className="w-8 h-8 rounded-full shadow border border-slate-700 object-cover" src={game.user.photo} alt="" />) : (<DefaultAvatar />)}
                                                             <span className="ml-2 font-medium">{game.user.fullName}</span>
                                                         </td>
+                                                        <td className="px-2 py-1  whitespace-nowrap"> {formatDate(game.date)} </td>
                                                         <td className="px-2 py-1  whitespace-nowrap"> {game.palabraAdivinar} </td>
                                                         <td className={`px-2 py-1 whitespace-nowrap ${game.finalState !== 'Ganaste' ? 'text-red-400' : 'text-green-400'} `}>
                                                             {game.finalState === 'Continua' ? 'Perdiste' : game.finalState}

@@ -1,101 +1,22 @@
-export const formatDate = (date: string) => {
-	const now = new Date(date)
-	now.setHours(now.getHours() - 3);
-	return (
-		now.getUTCDate().toString().padStart(2, '0') +
-		'-' +
-		(now.getUTCMonth() + 1).toString().padStart(2, '0') +
-		'-' +
-		now.getUTCFullYear().toString() +
-		' ' +
-		(now.getUTCHours()).toString().padStart(2, '0') +
-		':' +
-		now.getUTCMinutes().toString().padStart(2, '0')
-	)
-}
+export function formatDate(dateString: string): string {
+	const date = new Date(dateString);
+	const today = new Date();
 
-export const formatDateForInput = (date: string) => {
-	const now = new Date(date)
-	now.setHours(now.getHours() - 3);
-	return (
-		now.getUTCFullYear().toString() +
-		'-' +
-		(now.getUTCMonth() + 1).toString().padStart(2, '0') +
-		'-' +
-		now.getUTCDate().toString().padStart(2, '0') +
-		' ' +
-		(now.getUTCHours()).toString().padStart(2, '0') +
-		':' +
-		now.getUTCMinutes().toString().padStart(2, '0')
-	)
-}
+	const padZero = (num: number): string => {
+		return num.toString().padStart(2, "0");
+	};
 
-export function padTo2Digits(num: number) {
-	return num.toString().padStart(2, '0');
-}
-export function padToNDigit(num: number, n: number) {
-	return num.toString().padStart(n, '0');
-}
-
-export function formatDateDDMMYYYY(date: string) {
-	const d = new Date(date)
-	return [
-		padTo2Digits(d.getUTCDate()),
-		padTo2Digits(d.getUTCMonth() + 1),
-		d.getUTCFullYear(),
-	].join('-');
-}
-
-
-
-export const diffenceBetweenDates = (date1: string, date2: string): number => {
-	const now = new Date(date1)
-	const now2 = new Date(date2)
-	const diff = now2.getTime() - now.getTime()
-	const diffDays = Math.ceil(diff / (1000 * 3600 * 24))
-	return diffDays
-}
-
-
-export const diferenceBetweentwoDatesInYears = (date1: string, date2: string): number => {
-	const now = new Date(date1)
-	const now2 = new Date(date2)
-	const diff = now2.getTime() - now.getTime()
-	return Math.ceil(diff / (1000 * 3600 * 24 * 365.25))
-
-}
-
-
-
-type T = 'years' | 'months' | 'days' | 'hours' | 'minutes' | 'seconds' | 'milliseconds'
-
-export const addDate = (date: string, quantity: number, type: T): Date => {
-	const now = new Date(date)
-	switch (type) {
-		case 'years':
-			now.setFullYear(now.getFullYear() + quantity)
-			break;
-		case 'months':
-			now.setMonth(now.getMonth() + quantity)
-			break;
-		case 'days':
-			now.setDate(now.getDate() + quantity)
-			break;
-		case 'hours':
-			now.setHours(now.getHours() + quantity)
-			break;
-		case 'minutes':
-			now.setMinutes(now.getMinutes() + quantity)
-			break;
-		case 'seconds':
-			now.setSeconds(now.getSeconds() + quantity)
-			break;
-		case 'milliseconds':
-			now.setMilliseconds(now.getMilliseconds() + quantity)
-			break;
-		default:
-			break;
+	if (
+		date.getDate() === today.getDate() &&
+		date.getMonth() === today.getMonth() &&
+		date.getFullYear() === today.getFullYear()
+	) {
+		return date.toLocaleTimeString(); // Return time if date is today
+	} else if (date.getFullYear() !== today.getFullYear()) {
+		return `${padZero(date.getDate())}/${padZero(
+			date.getMonth() + 1
+		)}/${date.getFullYear()}`; // Return full dd/mm/yy if year is different
+	} else {
+		return `${padZero(date.getDate())}/${padZero(date.getMonth() + 1)}`; // Return dd/mm if date is within the current year
 	}
-	return now
 }
-
