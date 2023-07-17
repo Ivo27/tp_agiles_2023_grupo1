@@ -50,9 +50,7 @@ export const AuthProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   useEffect(() => {
-    console.log('entrooo')
     const token = localStorage.getItem(import.meta.env.VITE_HASH_USER_LOCAL_HOST) || null;
-    console.log('entrooo', token)
     if (!token) dispatch({ type: 'signOut' })
     else {
       // @ts-expect-error the token is not null

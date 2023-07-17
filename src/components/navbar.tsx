@@ -5,8 +5,6 @@ import DefaultAvatar from "./DefaultAvatar";
 
 const Navbar = () => {
     const { authState, signOut, } = useContext(AuthContext);
-    console.log(authState.user?.email)
-
     return (
         <header className='bg-slate-800  text-center text-white gap-4 flex items-center justify-between flex-wrap'>
             <Link to='/' className='text-2xl font-bold title-form'>AHORCADO G1</Link>

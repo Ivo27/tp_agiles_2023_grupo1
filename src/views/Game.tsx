@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect, useCallback } from 'react'
 import { Ahorcado, NIVEL } from '../ahorcado'
 import http from '../api/axios'
 import { AuthContext } from '../context/authContext';
@@ -12,21 +12,13 @@ const Game = () => {
     // const [count, setCount] = useState(0)
     const [game, setGame] = useState<Ahorcado>()
     const [endGame, setEndGame] = useState('')
-    const [timer, setTimer] = useState<number>()
+    const [timer, setTimer] = useState<NodeJS.Timer>()
     const [timeLeft, setTimeLeft] = useState<number>(0)
     const [playing, setPlaying] = useState(false)
     const [level, setLevel] = useState('facil')
     const [withTimer, setWithTimer] = useState<'Yes' | 'No'>('No')
     const [loadingStartingGame, setLoadingStartingGame] = useState(false)
     const letters = Array.from(Array(26)).map((_, i) => String.fromCharCode(i + 65))
-
-    const clearPerson = (l: number) => {
-        for (let j = 1; j <= l; j++) {
-            const el = document.getElementById(j.toString())
-            el?.classList.remove('block')
-            el?.classList.add('hidden')
-        }
-    }
 
     // const game = new Ahorcado()
     const updateGame = async (letter: string) => {
@@ -44,6 +36,48 @@ const Game = () => {
         if (isDone !== 'Continua' || (withTimer === 'Yes' && timeLeft === 0)) return handleEndGame(game, isDone)
 
     }
+
+    const updateGameOnKeyPress = useCallback((letter: string) => {
+        console.log('callbackkkkkkkkkkkkkkkkkkkkk')
+        if (!game) return
+        if (game.allInputs.includes(letter)) return
+        console.log('im innnnn 4444.11111 ::: ', letter)
+        updateGame(letter)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [game])
+
+
+
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            console.log(' effectttttttttttttttt')
+
+            console.log('im innnnn ::: ', e.key)
+            if (!e.key.match(/[a-z]/i) || !game) return
+            console.log('im innnnn 222 ::: ', e.key)
+            e.preventDefault()
+            console.log('im innnnn 3333 ::: ', e.key)
+            updateGameOnKeyPress(e.key.toUpperCase())
+            console.log('im innnnn 4444 ::: ', e.key)
+        }
+        document.addEventListener('keypress', handleKeyDown)
+
+        return () => {
+            document.removeEventListener('keypress', handleKeyDown)
+            clearInterval(timer)
+        }
+    },)
+
+    const clearPerson = (l: number) => {
+        for (let j = 1; j <= l; j++) {
+            const el = document.getElementById(j.toString())
+            el?.classList.remove('block')
+            el?.classList.add('hidden')
+        }
+    }
+
+
 
     const handleEndGame = async (game: Ahorcado, isDone: string) => {
         setEndGame(isDone)
@@ -123,7 +157,7 @@ const Game = () => {
                         {
                             endGame !== '' && (
                                 <div className="modal absolute w-screen h-screen  flex items-center justify-center bg-black/40 text-white z-30">
-                                    <div className="modal-content w-f[90%] mx-8 sm:mx-0 sm:w-[350px] bg-slate-700 p-4   shadow rounded">
+                                    <div className="modal-content w-[90%] mx-8 sm:mx-0 sm:w-[350px] bg-slate-700 p-4   shadow rounded">
                                         <div className="modal-header mb-4 border-b border-slate-600 pb-2">
                                             <h2 className='text-2xl font-meduim'>Fin Juego</h2>
                                         </div>
@@ -131,7 +165,7 @@ const Game = () => {
                                             {/* <p>Some text in the Modal Body</p> */}
                                             <p className={`${endGame === 'Ganaste' ? 'text-green-400' : 'text-red-400'}`}>
                                                 {
-                                                    endGame === 'Ganaste' ? `Felicidades ${authState.user?.fullName}, ganaste ` : `Perdiste ${authState.user?.fullName}, vuelve a intentarlo`
+                                                    endGame === 'Ganaste' ? `Felicidades ${authState.user?.fullName || ''}, ganaste ` : `Perdiste ${authState.user?.fullName || ''}, vuelve a intentarlo`
                                                 }
                                             </p>
                                         </div>
@@ -151,7 +185,7 @@ const Game = () => {
                                 </div>
                             )
                         }
-                        <div className="container m-auto my-6 flex flex-col sm:flex-row gap-y-4">
+                        <div className="container mx-auto my-6 flex flex-col sm:flex-row gap-y-4">
                             <div className="content mx-2 sm:w-[50%] flex items-center flex-col bg-slate-600   gap-4">
                                 <div className='text-slate-400 w-full text-3xl font-semibold p-2 bg-slate-800 bg-gradient from-slate-700 to-slate-900 text-center text-lg '>
                                     Fallos {game?.letrasErradas.length}/{game?.MAX_INTENTOS}
