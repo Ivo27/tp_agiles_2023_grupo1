@@ -1,0 +1,24 @@
+name: test
+run-name: Testeando el workflow de push
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+    steps:
+      - name : Echo the message 
+        run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run : echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run : date 
+      - run : | 
+          echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          echo "The SHA of the commit is ${{ github.sha }} and the message is ${{ github.event.head_commit.message }}."
+      # - uses: actions/checkout@v3
+      # - run: pwd
+      # - run: ls
+      # - run: cd ./tp-ahorcado
+      # - run: pwd
+      # - run: npm test

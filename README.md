@@ -12,8 +12,14 @@ Usage
 ```
 
 Ejecutar test 
-1. `yarn test` para ejecitar les test unitarios 
-2. `yarn coverage`  para mostrar resultados de Code Coverage
+* Para ejecitar les test unitarios 
+```js 
+    yarn test
+```
+* Para mostrar resultados de Code Coverage
+```js 
+    yarn coverage   
+```  
 ### Sign In Screen
 ![Sign in Screen](./src/assets/demo/sign-in.png)
 ### Sign Up Screen
