@@ -4,8 +4,13 @@ Ahi dejamos algunas imagenes del proyecto
 
 Usage 
 
-1. `yarn install`
-2. `yarn dev`
+```js 
+    yarn install
+```
+```js 
+    yarn dev
+```
+
 
 ## Ejecutar test 
 1. `yarn test` para ejecitar les test unitarios 
