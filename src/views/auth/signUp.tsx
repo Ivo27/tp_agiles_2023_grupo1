@@ -1,14 +1,11 @@
-import React, { useContext, useEffect } from 'react';
-import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import http from './../../api/axios';
 import { useForm } from '../../hooks/useForm';
-import { AuthContext } from '../../context/authContext';
-import Loading from '../../components/Loading';
-import Box from '../../components/Box';
 import CustomInput from '../../components/CustomInput';
+import Box from '../../components/Box';
 import FormError from '../../components/FormError';
-import CheckIcon from '../../components/icons/CheckIcon';
 
 const SignUp = () => {
 
@@ -17,8 +14,7 @@ const SignUp = () => {
   const [loginError, setLoginError] = useState<string | null>(null);
 
   const navigate = useNavigate();
-  const { authState } = useContext(AuthContext);
-  const { values, handleInputChange, email, password, fullName, photo, reset } = useForm({ email: '', password: '', fullName: '', photo: '' });
+  const { values, handleInputChange, email, password, fullName, reset } = useForm({ email: '', password: '', fullName: '', photo: '' });
 
   const verifyForm = () => {
     let ok = true;

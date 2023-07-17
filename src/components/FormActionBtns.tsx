@@ -1,6 +1,6 @@
-import React from 'react'
 import InlineDots from './loadings/Inlinedots'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const FormActionBtns = ({ onClose, savingOrUpdating }: { onClose: any, savingOrUpdating: boolean }) => {
     return (
         <section className='btns-form-actions action flex items-center gap-x-3 mt-8'>

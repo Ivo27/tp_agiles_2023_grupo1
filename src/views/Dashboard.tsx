@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext, useCallback } from 'react'
 import http from '../api/axios'
-// import Box from '../components/Box'
 import { AuthContext } from '../context/authContext';
 import DefaultAvatar from '../components/DefaultAvatar';
 import Box from '../components/Box';
@@ -50,7 +49,7 @@ const Dashboard = () => {
     return (
         <div className="flex flex-col justify-between min-h-screen">
             <Navbar />
-            <div className='my-6  sm:w-[90%] mx-2 sm:mx-auto '>
+            <div className='my-6 px-4  sm:w-[90%] mx-2 sm:mx-auto '>
                 <div className=" my-8 ">
                     <h1 className='title-form text-2xl sm:text-4xl'>Estadisticas</h1>
                     <div className="flex flex-wrap">

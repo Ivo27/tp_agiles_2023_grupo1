@@ -21,6 +21,8 @@ jobs:
       # - run : cd /web
       - run: npm install --no-audit --no-optional --no-fund
       # - run: yarn dev
+      - name : Ejecutar ESLINT para ver errores de codigo...
+        run: yarn lint
       - name : Ejecutar los Unit Test...
         run: |
           yarn test

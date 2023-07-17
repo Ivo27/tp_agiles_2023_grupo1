@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext, useEffect, useReducer } from 'react';
 import Loading from '../components/Loading';
 import { authReducer } from './../reducer/authReducer';
@@ -25,6 +26,7 @@ export interface AuthState {
   message: string | null,
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const initialState = {
   checking: true,
   token: '',

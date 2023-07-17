@@ -34,7 +34,7 @@ const CustomTextArea = (
 
   return (
     <fieldset>
-      {label && (<label htmlFor={label?.replaceAll(' ', '_')}>{label} {optional && (<span className='text-xs opacity-50'>(opcional)</span>)}</label>)}
+      {label && (<label htmlFor={label?.replace(' ', '_')}>{label} {optional && (<span className='text-xs opacity-50'>(opcional)</span>)}</label>)}
       <textarea
         onChange={(e) => {
           setValue(e.target.value);
@@ -45,7 +45,7 @@ const CustomTextArea = (
         maxLength={maxLength}
         required={required}
         minLength={minLength}
-        name={!!name ? name : label?.replaceAll(' ', '_')}
+        name={name ? name : label?.replace(' ', '_')}
         placeholder={placeholder}
       />
       {hasError && <FormError text={errorText} />}

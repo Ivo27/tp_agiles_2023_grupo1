@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-export const useForm = <T extends Object>(initialState: T) => {
+export const useForm = <T extends object>(initialState: T) => {
 
   const [values, setValues] = useState(initialState)
   const reset = () => setValues(initialState)
 
-  const handleInputChange = <K extends Object>(value: K, name: keyof T) => {
+  const handleInputChange = <K extends string>(value: K, name: keyof T) => {
     setValues({
       ...values,
       [name]: value,

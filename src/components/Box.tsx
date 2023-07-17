@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { AuthContext } from '../context/authContext'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Box = ({ children, className }: { children: any; className?: string }) => {
 	const { authState } = useContext(AuthContext)
 

@@ -6,7 +6,7 @@ import DefaultAvatar from "./DefaultAvatar";
 const Navbar = () => {
     const { authState, signOut, } = useContext(AuthContext);
     return (
-        <header className='bg-slate-800  text-center text-white gap-4 flex items-center justify-between flex-wrap'>
+        <header className='bg-slate-800 px-2 text-center text-white gap-4 flex items-center justify-between flex-wrap'>
             <Link to='/' className='text-2xl font-bold title-form'>AHORCADO G1</Link>
             <nav className="left-Navbar flex items-center justify-center gap-4">
                 <Link to="/game" className="text-slate-400 title-form hover:text-blue-500 duration-300">Jugar</Link>

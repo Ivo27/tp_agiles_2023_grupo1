@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { validateMail } from "./general";
 
-export const validateForm = (data: Object, notAllowedKeys: string[] = []): { ok: boolean; error: Object } => {
-    let error: any = {};
+export const validateForm = (data: any, notAllowedKeys: string[] = []): { ok: boolean; error: any } => {
+    const error: any = {};
     let ok = true;
     notAllowedKeys.concat(['updatedAt', 'deletedAt', 'id', 'createdAt']).forEach((key: string) => {
-        // @ts-expect-error
         delete data[key]
     })
 
@@ -41,7 +41,7 @@ export const validateForm = (data: Object, notAllowedKeys: string[] = []): { ok:
                 break;
         }
 
-        if (key === 'email' && !validateMail(value)) {
+        if (key === 'email' && !validateMail(typeof (value) === 'string' ? value : '')) {
             error[key] = true;
             ok = false;
         }

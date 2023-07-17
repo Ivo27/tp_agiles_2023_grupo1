@@ -19,7 +19,7 @@
     {
       "MAX_INTENTOS": 8,
       "TIMER": 60,
-      "nivel": "facil",
+      "nivel": "dificil",
       "intentos": 8,
       "palabraUsuario": [
         "l",

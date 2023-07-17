@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AuthState, Ialert } from '../context/authContext';
 
 type types =

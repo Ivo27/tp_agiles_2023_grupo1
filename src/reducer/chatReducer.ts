@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type types = { type: 'updateChatId'; payload: any } | { type: 'clearCurentChat' };
 
 export const chatReducer = (state: any, action: types): any => {

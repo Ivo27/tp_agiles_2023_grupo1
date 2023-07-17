@@ -1,4 +1,3 @@
-import React from "react";
 
 const SmallLoading = ({ w = 80, h = 80, round = true }: { w?: number; h?: number, round?: boolean }) => {
     return (
