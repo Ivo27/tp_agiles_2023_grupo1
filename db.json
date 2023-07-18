@@ -13,6 +13,13 @@
       "fullName": "MHOK",
       "photo": "https://res.cloudinary.com/draxircbk/image/upload/v1687141107/ATESPIEDSJESUS/USERS/jhmcode_2_admin.png",
       "id": 5
+    },
+    {
+      "email": "test@test.com",
+      "password": "test1234",
+      "fullName": "Test",
+      "photo": "",
+      "id": 6
     }
   ],
   "games": [
@@ -587,6 +594,39 @@
       "withTimer": true,
       "date": "2023-07-17T19:58:55.266Z",
       "id": 15
+    },
+    {
+      "MAX_INTENTOS": 8,
+      "TIMER": 60,
+      "nivel": "facil",
+      "intentos": 4,
+      "palabraUsuario": [
+        "c",
+        "a",
+        "s",
+        "a"
+      ],
+      "letrasErradas": [
+        "l",
+        "o",
+        "w",
+        "m"
+      ],
+      "palabraAdivinar": "casa",
+      "allInputs": [
+        "l",
+        "a",
+        "o",
+        "w",
+        "m",
+        "c",
+        "s"
+      ],
+      "finalState": "Ganaste",
+      "time": 60,
+      "withTimer": false,
+      "date": "2023-07-17T20:36:41.644Z",
+      "id": 16
     }
   ]
 }

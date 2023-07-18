@@ -130,6 +130,7 @@ const SignIn = () => {
               </Link>
             </span>
           </div>
+          <Link to='/' className='mt-2 border border-gray-600 w-full text-center px-2 py-1 border-dashed text-slate-400 hover:underline'>&#8592; Volver al inicio</Link>
 
         </form>
       </Box>

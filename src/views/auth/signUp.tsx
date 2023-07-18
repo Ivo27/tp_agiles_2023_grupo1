@@ -65,9 +65,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen dark:bg-gray-900 items-center justify-center">
-
-      <Box className=' w-full sm:w-[360px] mx-3 sm:mx-0  '>
+    <div className="flex h-screen w-screen flex-col dark:bg-gray-900 items-center justify-center">
+      <Box className=' w-full sm:w-[360px]  mx-3 sm:mx-0  '>
         <form onSubmit={handleSubmitLogin} className='flex items-center justify-between flex-col '>
           <h3 className='title-form self-start mb-4 !text-xl sm:!text-3xl'>Crear cuenta</h3>
           {loginError && (<FormError text={loginError} />)}
@@ -110,7 +109,7 @@ const SignUp = () => {
               </Link>
             </span>
           </div>
-
+          <Link to='/' className='mt-2 border border-gray-600 w-full text-center px-2 py-1 border-dashed text-slate-400 hover:underline'>&#8592; Volver al inicio</Link>
 
         </form>
       </Box>

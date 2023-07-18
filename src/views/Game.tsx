@@ -1,11 +1,13 @@
 // useEffect, useCallback
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { Ahorcado, NIVEL } from '../ahorcado'
 import http from '../api/axios'
 import { AuthContext } from '../context/authContext';
 import Box from '../components/Box';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
+import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 
 const Game = () => {
@@ -33,8 +35,8 @@ const Game = () => {
         // update person body
         for (let j = 1; j <= newGame.letrasErradas.length; j++) {
             const el = document.getElementById(j.toString())
-            el?.classList.remove('hidden')
-            el?.classList.add('block', 'animate-pulse')
+            el?.classList.remove('hidden', 'bg-red-300')
+            el?.classList.add('block', 'animate-pulse', 'border-blue-400', 'border-2', 'border-dashed')
         }
         if (isDone !== 'Continua' || (withTimer === 'Yes' && timeLeft === 0)) return handleEndGame(game, isDone)
 
@@ -50,25 +52,39 @@ const Game = () => {
     // }, [game])
 
 
-    // useEffect(() => {
-    //     const handleKeyDown = (e: KeyboardEvent) => {
-    //         console.log(' effectttttttttttttttt')
+    useEffect(() => {
+        // if (!authState.token) {
+        //     toast('No estás logueado, el resultado de este juego se perderá', {
+        //         position: "bottom-right",
+        //         autoClose: 5000,
+        //         hideProgressBar: true,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "colored",
+        //         icon: true,
+        //         bodyClassName: 'text-yellow-600'
+        //     });
+        // }
+        //     const handleKeyDown = (e: KeyboardEvent) => {
+        //         console.log(' effectttttttttttttttt')
 
-    //         console.log('im innnnn ::: ', e.key)
-    //         if (!e.key.match(/[a-z]/i) || !game) return
-    //         console.log('im innnnn 222 ::: ', e.key)
-    //         e.preventDefault()
-    //         console.log('im innnnn 3333 ::: ', e.key)
-    //         updateGameOnKeyPress(e.key.toUpperCase())
-    //         console.log('im innnnn 4444 ::: ', e.key)
-    //     }
-    //     document.addEventListener('keypress', handleKeyDown)
+        //         console.log('im innnnn ::: ', e.key)
+        //         if (!e.key.match(/[a-z]/i) || !game) return
+        //         console.log('im innnnn 222 ::: ', e.key)
+        //         e.preventDefault()
+        //         console.log('im innnnn 3333 ::: ', e.key)
+        //         updateGameOnKeyPress(e.key.toUpperCase())
+        //         console.log('im innnnn 4444 ::: ', e.key)
+        //     }
+        //     document.addEventListener('keypress', handleKeyDown)
 
-    //     return () => {
-    //         document.removeEventListener('keypress', handleKeyDown)
-    //         clearInterval(timer)
-    //     }
-    // },)
+        //     return () => {
+        //         document.removeEventListener('keypress', handleKeyDown)
+        //         clearInterval(timer)
+        //     }
+    }, [authState.token])
 
     const clearPerson = (l: number) => {
         for (let j = 1; j <= l; j++) {
@@ -97,11 +113,26 @@ const Game = () => {
             })
             if (res.status === 200) {
                 console.log('done suuccess')
+                if (authState.token) {
+                    toast('La puntuación se guardó con éxito!', {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: true,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                        icon: true,
+                        bodyClassName: 'text-yellow-600'
+                    });
+                }
             }
         } catch (error) {
             console.log('error')
+        } finally {
+            game.reiniciarJuego()
         }
-        game.reiniciarJuego()
         // alert('Juego terminado')
         // setGame(undefined)
     }
@@ -186,14 +217,14 @@ const Game = () => {
                         }
                         <div className="container mx-auto my-6 flex flex-col sm:flex-row gap-y-4">
                             <div className="content mx-2 sm:w-[50%] flex items-center flex-col bg-slate-600   gap-4">
-                                <div className='text-slate-400 w-full text-3xl font-semibold p-2 bg-slate-800 bg-gradient from-slate-700 to-slate-900 text-center text-lg '>
+                                <div className='text-slate-400 w-full  font-semibold p-2 bg-slate-800 bg-gradient from-slate-700 to-slate-900 text-center text-lg '>
                                     Fallos {game?.letrasErradas?.length}/{game?.MAX_INTENTOS}
                                 </div>
                                 <div className="person my-4 w-full min-h-[300px] relative">
 
                                     <div className="base absolute bottom-0  w-[70px] h-[6px] z-10 bg-red-300  shadow  border-slate-900 "></div>
                                     <div className="left-side absolute left-0 sm:left-[20px] bottom-0 w-2 h-[325px] z-10 bg-red-300  shadow  border-slate-900 "></div>
-                                    <div className=" top-side absolute -top-[25px] left-0 sm:left-[20px]  w-[50%] sm:w-[130px] h-[6px] z-10 bg-red-300  shadow  border-slate-900 relative"></div>
+                                    <div className=" top-side absolute -top-[25px] left-0 sm:left-[20px]  w-[50%] sm:w-[130px] h-[6px] z-10 bg-red-300  shadow  border-slate-900 "></div>
                                     <div className="top-pick  absolute -top-[25px] left-[50%] sm:left-[150px]  w-2 h-[50px] z-10 bg-red-300 shadow  border-slate-900 "></div>
 
                                     <div className="person relative w-full sm:w-[300px] h-fit  pb-20 grid  place-items-center ">
@@ -201,11 +232,11 @@ const Game = () => {
                                             <div id='2' className="eye-left w-4 h-4 rounded-full border bg-slate-600  border-slate-600 shadow absolute top-[28px] left-[20px] hidden"></div>
                                             <div id='3' className="eye-right w-4 h-4 rounded-full border bg-slate-600  border-slate-600 shadow absolute top-[28px] right-[20px] hidden"></div>
                                         </div>
-                                        <div className="body-person bg-red-300  -top-2 relative">
-                                            <div id='4' className="tronc h-[100px] w-8 shadow hidden "></div>
+                                        <div className="body-person   relative">
+                                            <div id='4' className="tronc h-[132px] w-8 shadow relative -top-[10px] hidden "></div>
                                             <div id='5' className="arm-left w-[20px] bg-red-300  absolute -rotate-45 !top-0 -right-[30px] h-[120px] hidden"></div>
                                             <div id='6' className="arm-right w-[20px] bg-red-300  absolute rotate-45 top-[0px] -left-[30px] h-[120px] hidden"></div>
-                                            <div id='7' className="leg-left arm-left w-[20px] bg-red-300  absolute -rotate-45 top-[70px] left-[47px] h-[120px] hidden"></div>
+                                            <div id='7' className="leg-left arm-left w-[20px] bg-red-300  absolute -rotate-45 top-[70px] -right-[30px] h-[120px] hidden"></div>
                                             <div id='8' className="leg-right arm-left w-[20px] bg-red-300  absolute rotate-45 top-[70px] -left-[30px] h-[120px] hidden"></div>
                                         </div>
                                     </div>
@@ -222,7 +253,7 @@ const Game = () => {
                             </div>
 
                             <div className="right mx-2  bg-slate-700 flex-1  sm:w-[50%]">
-                                <div className='text-slate-400 w-full text-3xl font-semibold p-2 bg-slate-800 bg-gradient from-slate-700 to-slate-900 text-center text-lg '>
+                                <div className='text-slate-400 w-full font-semibold p-2 bg-slate-800 bg-gradient from-slate-700 to-slate-900 text-center text-lg '>
                                     Letras
                                 </div>
                                 <div className="letters flex items-center gap-4 flex-wrap p-4">
@@ -254,8 +285,26 @@ const Game = () => {
 
                 ) : (
                     <div className="flex flex-col items-center justify-center h-full mx-2 sm:mx-0 ">
-                        <Box className="levels w-full  sm:w-[350px]">
-                            <h1 className='title-form text-2xl sm:text-4xl'>Configurar jugada</h1>
+                        <Box className="levels w-full  sm:w-[450px]">
+                            {
+                                !authState.token && (
+                                    <div className='mb-6 text-sm text-center text-red-300 border shadow border-dashed border-red-100 p-2 w-full rounded-md'>
+                                        No estás logueado, el resultado de este juego se perderá. Si deseas guardar tus puntuaciones, por favor <Link to="/sign-in" className='text-blue-400'>inicia sesión</Link>
+
+                                    </div>
+                                )
+                            }
+                            {/* <div className="absolute top-0 left-0 bg-black/30 min-h-screen w-full z-30 first-time">
+                                <Box className="shiw-nivel absolute top-[50%] left-[50%] ">
+                                    Selecciona un nivel para comenzar a jugar
+                                    <div className="btns flex flex-row items-center w-full justify-between mt-3">
+                                        <button>Saltar</button>
+                                        <button>Siguiente</button>
+                                    </div>
+                                </Box>
+                                hello
+                            </div> */}
+                            <h1 className='title-form text-2xl sm:text-3xl'>Configurar jugada</h1>
                             <fieldset>
                                 <label htmlFor="Nivel" className='text-slate-400'>Nivel</label>
                                 <select
