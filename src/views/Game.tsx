@@ -1,5 +1,5 @@
-// useEffect, useCallback
-import { useState, useContext, useEffect } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState, useContext, useEffect, useCallback } from 'react'
 import { Ahorcado, NIVEL } from '../ahorcado'
 import http from '../api/axios'
 import { AuthContext } from '../context/authContext';
@@ -11,8 +11,8 @@ import { Link } from 'react-router-dom';
 
 
 const Game = () => {
+
     const { authState } = useContext(AuthContext);
-    // const [count, setCount] = useState(0)
     const [game, setGame] = useState<Ahorcado>()
     const [endGame, setEndGame] = useState('')
     const [timer, setTimer] = useState<NodeJS.Timer>()
@@ -23,68 +23,37 @@ const Game = () => {
     const [loadingStartingGame, setLoadingStartingGame] = useState(false)
     const letters = Array.from(Array(26)).map((_, i) => String.fromCharCode(i + 65))
 
-    // const game = new Ahorcado()
     const updateGame = async (letter: string) => {
-        // console.log('Games :: ', game)
-        // return
         if (!game) return
         const newGame = game.verificarLetra(letter)
         setGame({ ...newGame })
         const isDone = newGame.finJuego()
-
-        // update person body
         for (let j = 1; j <= newGame.letrasErradas.length; j++) {
             const el = document.getElementById(j.toString())
             el?.classList.remove('hidden', 'bg-red-300')
             el?.classList.add('block', 'animate-pulse', 'border-blue-400', 'border-2', 'border-dashed')
         }
         if (isDone !== 'Continua' || (withTimer === 'Yes' && timeLeft === 0)) return handleEndGame(game, isDone)
-
     }
 
-    // const updateGameOnKeyPress = useCallback((letter: string) => {
-    //     console.log('callbackkkkkkkkkkkkkkkkkkkkk')
-    //     if (!game) return
-    //     if (game.allInputs.includes(letter)) return
-    //     console.log('im innnnn 4444.11111 ::: ', letter)
-    //     updateGame(letter)
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [game])
-
+    const updateGameOnKeyPress = useCallback((letter: string) => {
+        if (!game) return
+        updateGame(letter)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [game])
 
     useEffect(() => {
-        // if (!authState.token) {
-        //     toast('No estás logueado, el resultado de este juego se perderá', {
-        //         position: "bottom-right",
-        //         autoClose: 5000,
-        //         hideProgressBar: true,
-        //         closeOnClick: true,
-        //         pauseOnHover: true,
-        //         draggable: true,
-        //         progress: undefined,
-        //         theme: "colored",
-        //         icon: true,
-        //         bodyClassName: 'text-yellow-600'
-        //     });
-        // }
-        //     const handleKeyDown = (e: KeyboardEvent) => {
-        //         console.log(' effectttttttttttttttt')
-
-        //         console.log('im innnnn ::: ', e.key)
-        //         if (!e.key.match(/[a-z]/i) || !game) return
-        //         console.log('im innnnn 222 ::: ', e.key)
-        //         e.preventDefault()
-        //         console.log('im innnnn 3333 ::: ', e.key)
-        //         updateGameOnKeyPress(e.key.toUpperCase())
-        //         console.log('im innnnn 4444 ::: ', e.key)
-        //     }
-        //     document.addEventListener('keypress', handleKeyDown)
-
-        //     return () => {
-        //         document.removeEventListener('keypress', handleKeyDown)
-        //         clearInterval(timer)
-        //     }
-    }, [authState.token])
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (!e.key.toLocaleLowerCase().match(/[a-z]/i)) return
+            e.preventDefault()
+            updateGameOnKeyPress(e.key.toUpperCase())
+        }
+        document.addEventListener('keypress', handleKeyDown)
+        return () => {
+            document.removeEventListener('keypress', handleKeyDown)
+            clearInterval(timer)
+        }
+    }, [updateGameOnKeyPress, timer, game])
 
     const clearPerson = (l: number) => {
         for (let j = 1; j <= l; j++) {
@@ -98,21 +67,17 @@ const Game = () => {
         setEndGame(isDone)
         clearInterval(timer)
         setTimer(undefined)
-        // setTimeLeft(0)
         setPlaying(false)
-        // setWithTimer('No')
-        // store result in database
         try {
             const res = await http.post('/games', {
                 ...game,
-                userId: authState.user?.id,
+                UserId: authState.user?.id,
                 finalState: isDone,
                 time: game.TIMER - timeLeft,
                 withTimer: withTimer === 'Yes' ? true : false,
                 date: new Date()
             })
-            if (res.status === 200) {
-                console.log('done suuccess')
+            if (res.data.ok) {
                 if (authState.token) {
                     toast('La puntuación se guardó con éxito!', {
                         position: "bottom-right",
@@ -124,17 +89,25 @@ const Game = () => {
                         progress: undefined,
                         theme: "dark",
                         icon: true,
-                        bodyClassName: 'text-yellow-600'
+                        bodyClassName: 'text-green-400'
                     });
                 }
             }
-        } catch (error) {
-            console.log('error')
-        } finally {
-            game.reiniciarJuego()
-        }
-        // alert('Juego terminado')
-        // setGame(undefined)
+        } catch (error: any) {
+            if (!authState.token) return
+            toast(error?.response.data.message, {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                icon: true,
+                bodyClassName: 'text-red-600'
+            });
+        } finally { game.reiniciarJuego() }
     }
 
     const handleNewGame = () => {
@@ -147,12 +120,9 @@ const Game = () => {
         setEndGame('')
         clearPerson(8)
         setTimeLeft(0)
-        // setWithTimer('No')
-
     }
 
     const handleStartGame = () => {
-        console.log(withTimer, level)
         setLoadingStartingGame(true)
         const lev: NIVEL = level === 'facil' ? 'facil' : level === 'medio' ? 'medio' : 'dificil'
         const g = new Ahorcado(lev)
@@ -178,11 +148,10 @@ const Game = () => {
 
 
     return (
-        <div className='flex h-screen justify-between flex-col'>
+        <div className='flex min-h-screen justify-between flex-col'>
             <Navbar />
             {
                 (playing || game !== undefined) ? (
-
                     <>
                         {
                             endGame !== '' && (
@@ -222,15 +191,15 @@ const Game = () => {
                                 </div>
                                 <div className="person my-4 w-full min-h-[300px] relative">
 
-                                    <div className="base absolute bottom-0  w-[70px] h-[6px] z-10 bg-red-300  shadow  border-slate-900 "></div>
-                                    <div className="left-side absolute left-0 sm:left-[20px] bottom-0 w-2 h-[325px] z-10 bg-red-300  shadow  border-slate-900 "></div>
-                                    <div className=" top-side absolute -top-[25px] left-0 sm:left-[20px]  w-[50%] sm:w-[130px] h-[6px] z-10 bg-red-300  shadow  border-slate-900 "></div>
-                                    <div className="top-pick  absolute -top-[25px] left-[50%] sm:left-[150px]  w-2 h-[50px] z-10 bg-red-300 shadow  border-slate-900 "></div>
+                                    <div className="base absolute bottom-0  w-[70px] h-[6px] z-10 bg-blue-300  shadow  border-slate-900 "></div>
+                                    <div className="left-side absolute left-0 sm:left-[20px] bottom-0 w-2 h-[325px] z-10 bg-blue-300  shadow  border-slate-900 "></div>
+                                    <div className=" top-side absolute -top-[25px] left-0 sm:left-[20px]  w-[50%] sm:w-[130px] h-[6px] z-10 bg-blue-300  shadow  border-slate-900 "></div>
+                                    <div className="top-pick  absolute -top-[25px] left-[50%] sm:left-[150px]  w-2 h-[50px] z-10 bg-blue-300 shadow  border-slate-900 "></div>
 
                                     <div className="person relative w-full sm:w-[300px] h-fit  pb-20 grid  place-items-center ">
-                                        <div id='1' className="header  w-[80px] h-[80px] z-10 bg-red-300 rounded-full shadow  border-slate-900 relative hidden">
-                                            <div id='2' className="eye-left w-4 h-4 rounded-full border bg-slate-600  border-slate-600 shadow absolute top-[28px] left-[20px] hidden"></div>
-                                            <div id='3' className="eye-right w-4 h-4 rounded-full border bg-slate-600  border-slate-600 shadow absolute top-[28px] right-[20px] hidden"></div>
+                                        <div id='1' className="header  w-[80px] h-[80px] z-10 bg-red-300 rounded-full shadow   relative hidden">
+                                            <div id='2' className="eye-left w-4 h-4 rounded-full border bg-slate-600  shadow absolute top-[28px] left-[20px] hidden"></div>
+                                            <div id='3' className="eye-right w-4 h-4 rounded-full border bg-slate-600   shadow absolute top-[28px] right-[20px] hidden"></div>
                                         </div>
                                         <div className="body-person   relative">
                                             <div id='4' className="tronc h-[132px] w-8 shadow relative -top-[10px] hidden "></div>
@@ -252,7 +221,7 @@ const Game = () => {
                                 </div>
                             </div>
 
-                            <div className="right mx-2  bg-slate-700 flex-1  sm:w-[50%]">
+                            <div className="right mx-2  bg-slate-700 flex-1  sm:w-[50%] flex flex-col ">
                                 <div className='text-slate-400 w-full font-semibold p-2 bg-slate-800 bg-gradient from-slate-700 to-slate-900 text-center text-lg '>
                                     Letras
                                 </div>
@@ -269,6 +238,11 @@ const Game = () => {
                                         ))
                                     }
                                 </div>
+                                <button
+                                    onClick={() => {
+                                        if (game) { handleEndGame(game, 'Perdiste') }
+                                    }}
+                                    className='hover:bg-red-500 hover:text-white duration-150 self-center px-3  py-1 rounded-full shadow-md text-slate-300 border border-dashed border-red-400'>Finalizar</button>
                             </div>
                         </div>
                         {
@@ -284,26 +258,33 @@ const Game = () => {
                     </>
 
                 ) : (
-                    <div className="flex flex-col items-center justify-center h-full mx-2 sm:mx-0 ">
-                        <Box className="levels w-full  sm:w-[450px]">
+                    <div className="flex flex-col items-center justify-center h-full mx-2 sm:mx-0 my-8">
+                        <Box className="levels w-full sm:w-[450px]">
                             {
                                 !authState.token && (
-                                    <div className='mb-6 text-sm text-center text-red-300 border shadow border-dashed border-red-100 p-2 w-full rounded-md'>
-                                        No estás logueado, el resultado de este juego se perderá. Si deseas guardar tus puntuaciones, por favor <Link to="/sign-in" className='text-blue-400'>inicia sesión</Link>
-
+                                    <div className='mb-6 text-sm text-red-300 border shadow border-dashed border-red-100 p-4 w-full'>
+                                        No estás logueado, el resultado de este juego se perderá. Si deseas guardar tus puntuaciones, por favor <br />  <br />
+                                        <Link to="/sign-in" className='text-blue-400'>inicia sesión</Link>
                                     </div>
                                 )
                             }
-                            {/* <div className="absolute top-0 left-0 bg-black/30 min-h-screen w-full z-30 first-time">
-                                <Box className="shiw-nivel absolute top-[50%] left-[50%] ">
-                                    Selecciona un nivel para comenzar a jugar
-                                    <div className="btns flex flex-row items-center w-full justify-between mt-3">
-                                        <button>Saltar</button>
-                                        <button>Siguiente</button>
-                                    </div>
-                                </Box>
-                                hello
-                            </div> */}
+                            <div className='mb-6 text-sm  border shadow  border-green-100 p-4 w-full  border-dashed'>
+                                <div className='mb-4 text-lg font-bold text-yellow-600'>
+                                    !!! IMPORTANTE !!! <br />
+                                </div>
+                                <ul className='flex flex-col gap-2 list-decimal pl-6  text-yellow-300'>
+                                    <li>
+                                        Para jugar con el teclado, debes hacer click en el botón de la letra que deseas ingresar.
+                                    </li>
+                                    <li>
+                                        No hay diferencia entre mayúsculas y minúsculas. Osea que si la palabra es "HOLA", puedes ingresar "hola".
+                                    </li>
+                                    <li>
+                                        No hay diferencia de acentos. Osea que si la palabra es "árbol", puedes ingresar "arbol".
+                                    </li>
+                                </ul>
+
+                            </div>
                             <h1 className='title-form text-2xl sm:text-3xl'>Configurar jugada</h1>
                             <fieldset>
                                 <label htmlFor="Nivel" className='text-slate-400'>Nivel</label>
@@ -342,11 +323,11 @@ const Game = () => {
                             </fieldset>
 
                         </Box>
-                    </div>
+                    </div >
                 )
             }
             <Footer />
-        </div>
+        </div >
     )
 }
 

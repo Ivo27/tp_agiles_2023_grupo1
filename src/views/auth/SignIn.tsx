@@ -18,7 +18,7 @@ const SignIn = () => {
   const [loginError, setLoginError] = useState<string | null>(null);
 
   const { signIn, message } = useContext(AuthContext);
-  const { values, handleInputChange, email, password, reset } = useForm({
+  const { values, handleInputChange, reset } = useForm({
     email: "",
     password: "",
   });
@@ -31,13 +31,11 @@ const SignIn = () => {
     if (!ok) return false
     setLoading(true);
     try {
-      const r = await http.get(`/users?email=${email}&password=${password}&_limit=1`);
-      console.log('res :: ', r)
-      // return
-      if (r.status === 200 && r.data.length) {
+      const r = await http.post(`/users/signin`, { ...values });
+      if (r.data.ok) {
         signIn({
-          user: r.data[0],
-          token: Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2)
+          user: r.data.user,
+          token: r.data.token
         });
         reset();
         setLoading(false);

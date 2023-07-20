@@ -12,21 +12,18 @@ function App() {
   const [faciles, setFaciles] = useState<IGame[]>([])
   const [medios, setMedios] = useState<IGame[]>([])
   const [dificiles, setDificiles] = useState<IGame[]>([])
+
   useEffect(() => {
-
-    http.get(`/games?nivel=facil&finalState=Ganaste&_expand=user&userId_ne=null&_sort=intentos,time&_order=desc,desc`).then(res => {
-      console.log(res.data)
-      setFaciles(res.data)
+    http.get(`/games?nivel=facil&finalState=Ganaste&sort=intentos,time`).then(res => {
+      setFaciles(res.data.data)
     }).catch(err => console.log(err))
 
-    http.get(`/games?nivel=medio&finalState=Ganaste&_expand=user&userId_ne=null&_sort=intentos&_order=desc`).then(res => {
-      console.log(res.data)
-      setMedios(res.data)
+    http.get(`/games?nivel=medio&finalState=Ganaste&sort=intentos`).then(res => {
+      setMedios(res.data.data)
     }).catch(err => console.log(err))
 
-    http.get(`/games?nivel=dificil&finalState=Ganaste&_expand=user&userId_ne=null&_sort=intentos&_order=desc`).then(res => {
-      console.log(res.data)
-      setDificiles(res.data)
+    http.get(`/games?nivel=dificil&finalState=Ganaste&sort=intentos`).then(res => {
+      setDificiles(res.data.data)
     }).catch(err => console.log(err))
 
   }, [])
@@ -76,8 +73,8 @@ function App() {
                             <tr key={game.id} className={`border-b border-slate-600 ${index % 2 === 0 && 'bg-black bg-opacity-20'}`}>
                               <td className="pl-4"> {game.id} </td>
                               <td className="px-2 py-1 w-fit flex top-[6px] relative  items-center   h-full whitespace-nowrap">
-                                {game?.user?.photo ? (<img className="w-8 h-8 rounded-full shadow border border-slate-700 object-cover" src={game.user.photo} alt="" />) : (<DefaultAvatar />)}
-                                <span className="ml-2 font-medium">{game?.user?.fullName || 'Desconocido'}</span>
+                                {game.User?.photo ? (<img className="w-8 h-8 rounded-full shadow border border-slate-700 object-cover" src={game.User.photo} alt="" />) : (<DefaultAvatar />)}
+                                <span className="ml-2 font-medium">{game.User?.fullName || 'Desconocido'}</span>
                               </td>
                               <td className="px-2 py-1  whitespace-nowrap"> {game.palabraAdivinar} </td>
                               <td className={`px-2 py-1 whitespace-nowrap ${game.finalState !== 'Ganaste' ? 'text-red-400' : 'text-green-400'} `}>
@@ -170,8 +167,8 @@ function App() {
                             <tr key={game.id} className={`border-b border-slate-600 ${index % 2 === 0 && 'bg-black bg-opacity-20'}`}>
                               <td className="pl-4"> {game.id} </td>
                               <td className="px-2 py-1 w-fit flex top-[6px] relative  items-center   h-full whitespace-nowrap">
-                                {game?.user?.photo ? (<img className="w-8 h-8 rounded-full shadow border border-slate-700 object-cover" src={game.user.photo} alt="" />) : (<DefaultAvatar />)}
-                                <span className="ml-2 font-medium">{game?.user?.fullName || 'Desconocido'}</span>
+                                {game.User?.photo ? (<img className="w-8 h-8 rounded-full shadow border border-slate-700 object-cover" src={game.User.photo} alt="" />) : (<DefaultAvatar />)}
+                                <span className="ml-2 font-medium">{game.User?.fullName || 'Desconocido'}</span>
                               </td>
                               <td className="px-2 py-1  whitespace-nowrap"> {game.palabraAdivinar} </td>
                               <td className={`px-2 py-1 whitespace-nowrap ${game.finalState !== 'Ganaste' ? 'text-red-400' : 'text-green-400'} `}>
@@ -264,8 +261,8 @@ function App() {
                             <tr key={game.id} className={`border-b border-slate-600 ${index % 2 === 0 && 'bg-black bg-opacity-20'}`}>
                               <td className="pl-4"> {game.id} </td>
                               <td className="px-2 py-1 w-fit flex top-[6px] relative  items-center   h-full whitespace-nowrap">
-                                {game?.user?.photo ? (<img className="w-8 h-8 rounded-full shadow border border-slate-700 object-cover" src={game.user.photo} alt="" />) : (<DefaultAvatar />)}
-                                <span className="ml-2 font-medium">{game?.user?.fullName || 'Desconocido'}</span>
+                                {game.User?.photo ? (<img className="w-8 h-8 rounded-full shadow border border-slate-700 object-cover" src={game.User.photo} alt="" />) : (<DefaultAvatar />)}
+                                <span className="ml-2 font-medium">{game.User?.fullName || 'Desconocido'}</span>
                               </td>
                               <td className="px-2 py-1  whitespace-nowrap"> {game.palabraAdivinar} </td>
                               <td className={`px-2 py-1 whitespace-nowrap ${game.finalState !== 'Ganaste' ? 'text-red-400' : 'text-green-400'} `}>

@@ -1,17 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import http from './../../api/axios';
 import { useForm } from '../../hooks/useForm';
 import CustomInput from '../../components/CustomInput';
 import Box from '../../components/Box';
 import FormError from '../../components/FormError';
+import { AuthContext } from '../../context/authContext';
 
 const SignUp = () => {
 
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<any>();
   const [loginError, setLoginError] = useState<string | null>(null);
+  const { signIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const { values, handleInputChange, email, password, fullName, reset } = useForm({ email: '', password: '', fullName: '', photo: '' });
@@ -42,9 +44,8 @@ const SignUp = () => {
       setLoading(true);
       try {
         const r = await http.post('/users', values);
-        console.log('res ::', r)
-        if (r.status === 201) {
-          // SignUp(r.data);
+        if (r.data.ok) {
+          signIn(r.data);
           reset();
           setLoading(false);
           navigate('/');

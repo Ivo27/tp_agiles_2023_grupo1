@@ -27,7 +27,7 @@ export interface IGame {
     intentos: number,
     letrasErradas: string[],
     allInputs: string[],
-    user: IUser,
+    User: IUser,
     nivel: string,
     TIMER: number,
     time: number,
@@ -40,9 +40,8 @@ const Dashboard = () => {
     const [myGames, setMyGames] = useState<IGame[]>([])
     const getMyGames = useCallback(
         async () => {
-            const res = await http.get(`/games?userId=${user?.id}&_expand=user`)
-            console.log(res.data)
-            setMyGames(res.data)
+            const res = await http.get(`/games?UserId=${user?.id}`)
+            setMyGames(res.data.data)
         },
         [user?.id],
     )
@@ -117,8 +116,8 @@ const Dashboard = () => {
                                                     <tr key={game.id} className={`border-b border-slate-600 ${index % 2 === 0 && 'bg-black bg-opacity-20'}`}>
                                                         <td className="pl-4"> {game.id} </td>
                                                         <td className="px-2 py-1 w-fit flex top-[6px] relative  items-center   h-full whitespace-nowrap">
-                                                            {game.user.photo ? (<img className="w-8 h-8 rounded-full shadow border border-slate-700 object-cover" src={game.user.photo} alt="" />) : (<DefaultAvatar />)}
-                                                            <span className="ml-2 font-medium">{game.user.fullName}</span>
+                                                            {game.User.photo ? (<img className="w-8 h-8 rounded-full shadow border border-slate-700 object-cover" src={game.User.photo} alt="" />) : (<DefaultAvatar />)}
+                                                            <span className="ml-2 font-medium">{game.User.fullName}</span>
                                                         </td>
                                                         <td className="px-2 py-1  whitespace-nowrap"> {formatDate(game.date)} </td>
                                                         <td className="px-2 py-1  whitespace-nowrap"> {game.palabraAdivinar} </td>
