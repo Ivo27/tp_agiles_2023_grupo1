@@ -2,6 +2,7 @@
 
 
 // create a list of easy work between 5 and 10 letters 
+/*
 const palabrasFaciles = [
     "juz",
     "tema",
@@ -293,6 +294,11 @@ const palabrasDificiles = [
     "abstención",
     "boicot",
     "conjetura"]
+*/
+
+const palabrasFaciles = ['flor']
+const palabrasMedios = ['manzana']
+const palabrasDificiles = ['conjetura']
 
 export type NIVEL = 'facil' | 'medio' | 'dificil'
 
