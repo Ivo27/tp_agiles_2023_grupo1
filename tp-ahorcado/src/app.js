@@ -48,17 +48,6 @@ const palabraErradas = (palabraAdivinar, letra, letrasErradas) => {
     }
 }
 
-// verificarLetra('a', PALABRA_A_ADIVINAR)
-// console.log(verificarFinJuego())
-// verificarLetra('t', PALABRA_A_ADIVINAR)
-// console.log(verificarFinJuego())
-// verificarLetra('x', PALABRA_A_ADIVINAR)
-// console.log(verificarFinJuego())
-// verificarLetra('t', PALABRA_A_ADIVINAR)
-// console.log(verificarFinJuego())
-// verificarLetra('k', PALABRA_A_ADIVINAR)
-// console.log(verificarFinJuego())
-
 const jugar = (palabraAdivinar) => {
 
     let letrasErradas = []
@@ -86,21 +75,5 @@ const jugar = (palabraAdivinar) => {
         else if (res === 'Perdiste') return 'Perdiste'
     }
 }
-
-
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar(PALABRA_A_ADIVINAR))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('f'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('j'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('cr'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('htp'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('p'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('s'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('x'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('ar'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('l'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('g'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('n'))
-// console.log('RESULTADO :: ------------------------------------------------------------------------------', jugar('k'))
-
 
 module.exports = { verificarLetra, actualizarIntentos, verificarFinJuego, completarPalabra, palabraErradas, jugar }

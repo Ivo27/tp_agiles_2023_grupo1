@@ -51,9 +51,8 @@ const Game = () => {
         document.addEventListener('keypress', handleKeyDown)
         return () => {
             document.removeEventListener('keypress', handleKeyDown)
-            clearInterval(timer)
         }
-    }, [updateGameOnKeyPress, timer, game])
+    }, [updateGameOnKeyPress, game])
 
     const clearPerson = (l: number) => {
         for (let j = 1; j <= l; j++) {
@@ -68,6 +67,9 @@ const Game = () => {
         clearInterval(timer)
         setTimer(undefined)
         setPlaying(false)
+
+        if (!authState.token) return game.reiniciarJuego()
+
         try {
             const res = await http.post('/games', {
                 ...game,
@@ -213,7 +215,7 @@ const Game = () => {
                                 <div className="theword mx-2 flex items-center justify-center gap-4 my-6 flex-wrap">
                                     {
                                         game?.palabraAdivinar?.split('').map((letter: string, i: number) => (
-                                            <div key={i} className='flex items-center w-8 h-8 border border-slate-800 justify-center text-slate-300 text-lg font-semibold  underline'>
+                                            <div key={i} className='flex uppercase items-center w-8 h-8 border border-slate-500 justify-center text-slate-300 text-lg font-semibold'>
                                                 {game.palabraUsuario[i] === game.palabraAdivinar[i] ? letter : '_'}
                                             </div>
                                         ))

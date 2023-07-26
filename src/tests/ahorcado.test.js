@@ -1,5 +1,5 @@
-import {  expect, test } from 'vitest'
-import  { Ahorcado, palabrasFaciles, palabrasMedios, palabrasDificiles }  from '../t_ahorcado'
+import { expect, test } from 'vitest'
+import { Ahorcado, palabrasFaciles, palabrasMedios, palabrasDificiles } from '../t_ahorcado'
 
 // // const juegoFacil = new Ahorcado('facil')
 // const juegoMedio = new Ahorcado('medio')
@@ -39,7 +39,7 @@ test('Completar una letra ', () => {
 test('Completar varias letras ', () => {
     const juegoFacil = new Ahorcado('facil')
     // eslint-disable-next-line no-sparse-arrays
-    expect(juegoFacil.completarPalabra('a')).toStrictEqual([, 'a',  , 'a'])
+    expect(juegoFacil.completarPalabra('a')).toStrictEqual([, 'a', , 'a'])
 });
 test('No completar letra', () => {
     const juegoFacil = new Ahorcado('facil')
@@ -109,18 +109,15 @@ test('Validar juego dificil', () => {
 
 test('Validar si la palabra elegida esta en la lista de las palabras faciles', () => {
     const juegofacil = new Ahorcado('facil', 2)
-    console.log('FAC :: ', juegofacil.palabraAdivinar)
 
     expect(palabrasFaciles).toContain(juegofacil.palabraAdivinar)
 });
 test('Validar si la palabra elegida esta en la lista de las palabras medios', () => {
     const juegoMedio = new Ahorcado('medio', 2)
-    console.log('MEDIO :: ', juegoMedio.palabraAdivinar)
 
     expect(palabrasMedios).toContain(juegoMedio.palabraAdivinar)
 });
 test('Validar si la palabra elegida esta en la lista de las palabras dificiles', () => {
     const juegodificil = new Ahorcado('dificil', 2)
-    console.log('DIF :: ', juegodificil.palabraAdivinar)
     expect(palabrasDificiles).toContain(juegodificil.palabraAdivinar)
 });
