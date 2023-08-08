@@ -1,6 +1,6 @@
 describe('template spec', () => {
   beforeEach(() => {
-    cy.visit('localhost:5173/sign-in')
+    cy.visit('/sign-in')
   })
   it('Login sin exito', () => {
     cy.contains(/Inicia sesión/i)

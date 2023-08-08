@@ -1,6 +1,6 @@
 describe('Ejecutar juego', () => {
   it('Ganar Juego', () => {
-    cy.visit('localhost:5173')
+    cy.visit('/')
     cy.contains('Jugar').click()
     cy.url().should('include', '/game')
     cy.get('#levels').select('Facil')

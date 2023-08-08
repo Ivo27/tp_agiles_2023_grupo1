@@ -1,5 +1,5 @@
 describe('template spec', () => {
-    beforeEach(() => { cy.visit('localhost:5173/sign-up') })
+    beforeEach(() => { cy.visit('/sign-up') })
     it('Register sin exito', () => {
         cy.contains(/Inicia sesión/i)
         cy.get('.test-fullName').type('test-cypress')
