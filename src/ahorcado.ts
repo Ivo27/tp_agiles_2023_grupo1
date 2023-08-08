@@ -118,6 +118,8 @@ const palabrasFaciles = [
     "pez",
 ];
 
+*/
+
 // create a list of medium work between 10 and 15 letters
 const palabrasMedios = [
     "montaña",
@@ -294,11 +296,9 @@ const palabrasDificiles = [
     "abstención",
     "boicot",
     "conjetura"]
-*/
+
 
 const palabrasFaciles = ['flor']
-const palabrasMedios = ['manzana']
-const palabrasDificiles = ['conjetura']
 
 export type NIVEL = 'facil' | 'medio' | 'dificil'
 
