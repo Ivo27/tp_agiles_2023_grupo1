@@ -16,17 +16,18 @@ jobs:
         with:
           node-version: "18"
       # - run : cd web
-      - run: pwd
-      - run: ls
+      # - run: pwd
+      # - run: ls
       # - run : cd /web
       - run: npm install --no-audit --no-optional --no-fund
       # - run: yarn dev
       - name : Ejecutar ESLINT para ver errores de codigo...
         run: yarn lint
-      - name : Ejecutar los Unit Test...
+      - name : Ejecutar los Tests...
         run: |
           yarn test
           yarn coverage
+          yarn test:e2e
       - name : Generar el build 
         run: yarn build
           

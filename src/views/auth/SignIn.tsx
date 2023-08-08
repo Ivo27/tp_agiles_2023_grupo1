@@ -78,6 +78,7 @@ const SignIn = () => {
             placeholder="example@gmail.com"
             onChange={(val) => handleInputChange(val, "email")}
             hasError={errors?.email}
+            className="test-email"
             required
             label="Email"
             errorText="Email obligatorio y válido."
@@ -90,12 +91,16 @@ const SignIn = () => {
             onChange={(val) => handleInputChange(val, "password")}
             required
             label="Contraseña"
+            className="test-password"
             hasError={errors?.password}
             errorText="Contraseña obligatoria ."
           />
 
           <fieldset>
-            <button disabled={loading} className="btn gradient" type="submit">
+            <button
+              id="sign-up"
+              disabled={loading}
+              className="btn gradient" type="submit">
               {loading ? (
                 <div className="flex items-center gap-4">
                   <span>Espere</span>

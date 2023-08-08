@@ -75,6 +75,7 @@ const SignUp = () => {
             name='fullName'
             onChange={(val) => handleInputChange(val, 'fullName')}
             label='Nombre Completo'
+            className='test-fullName'
             hasError={errors?.fullName}
             errorText='El nombre es obligatorio.'
           />
@@ -82,6 +83,7 @@ const SignUp = () => {
             label='Email' name='email'
             placeholder='example@gmail.com'
             onChange={(val) => handleInputChange(val, 'email')}
+            className='test-email'
             errorText='Email obligatorio y válido.'
             hasError={errors?.email}
           />
@@ -89,6 +91,7 @@ const SignUp = () => {
             type='password'
             name='password'
             placeholder='.lk8Tx9W/'
+            className='test-password'
             onChange={(val) => handleInputChange(val, 'password')}
             hasError={errors?.password}
             errorText='Contraseña obligatoria.'
@@ -96,7 +99,9 @@ const SignUp = () => {
           />
 
           <fieldset>
-            <button disabled={loading} className='btn gradient' type='submit'>{!loading ? ('Crear cuenta') : 'Espere...'}</button>
+            <button disabled={loading}
+              id='test-sign-up'
+              className='btn gradient' type='submit'>{!loading ? ('Crear cuenta') : 'Espere...'}</button>
           </fieldset>
 
           <div className="register-section text-sx my-2">
