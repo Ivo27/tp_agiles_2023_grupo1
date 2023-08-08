@@ -25,7 +25,6 @@ jobs:
         run: yarn lint
       - name : Ejecutar los Tests...
         run: |
-          npx vite
           yarn test
           yarn coverage
           yarn test:e2e
